@@ -1,0 +1,21 @@
+{
+  "symbol": "SPX",
+  "previous_close": 5750.25,
+  "open_price": 5688.10,
+  "spot_price": 5703.40,
+  "expected_move": 60.0,
+  "bars": [
+    {"datetime": "2026-03-26T09:30:00", "open": 5688.1, "high": 5695.0, "low": 5682.0, "close": 5691.2, "volume": 1000},
+    {"datetime": "2026-03-26T09:35:00", "open": 5691.2, "high": 5697.0, "low": 5689.0, "close": 5695.4, "volume": 1200},
+    {"datetime": "2026-03-26T09:40:00", "open": 5695.4, "high": 5701.0, "low": 5693.0, "close": 5698.8, "volume": 1100},
+    {"datetime": "2026-03-26T09:45:00", "open": 5698.8, "high": 5706.0, "low": 5696.0, "close": 5703.4, "volume": 1400}
+  ],
+  "chain": [
+    {"expiration": "2026-03-27", "option_type": "PUT", "strike": 5590, "delta": -0.20, "bid": 7.2, "ask": 7.8},
+    {"expiration": "2026-03-27", "option_type": "PUT", "strike": 5540, "delta": -0.10, "bid": 4.5, "ask": 4.9},
+    {"expiration": "2026-03-27", "option_type": "CALL", "strike": 5815, "delta": 0.20, "bid": 7.0, "ask": 7.4},
+    {"expiration": "2026-03-27", "option_type": "CALL", "strike": 5865, "delta": 0.11, "bid": 4.4, "ask": 4.8},
+    {"expiration": "2026-03-27", "option_type": "PUT", "strike": 5700, "delta": -0.50, "bid": 29.5, "ask": 30.5},
+    {"expiration": "2026-03-27", "option_type": "CALL", "strike": 5700, "delta": 0.50, "bid": 29.2, "ask": 30.0}
+  ]
+}

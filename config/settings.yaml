@@ -1,0 +1,12 @@
+default_symbol: SPX
+default_dte_min: 0
+default_dte_max: 7
+default_target_delta: 0.20
+default_wing_width_spx: 50
+default_wing_width_spy: 5
+profit_target_1: 0.30
+profit_target_2: 0.50
+gap_near_em_threshold: 0.20
+min_confidence_to_trade: 0.60
+allow_no_trade: true
+sample_mode: true

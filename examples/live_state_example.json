@@ -32,6 +32,27 @@
         "entry_credit": 8.95,
         "current_value": 1.10
       }
+    },
+    {
+      "id": "IC_1003",
+      "symbol": "SPX",
+      "expiration": "2026-04-02",
+      "quantity": 1,
+      "entry_time_et": "10:03 ET",
+      "call_side": {
+        "short_strike": 6550,
+        "long_strike": 6600,
+        "option_type": "CALL",
+        "entry_credit": 8.11,
+        "current_value": 13.90
+      },
+      "put_side": {
+        "short_strike": 6475,
+        "long_strike": 6425,
+        "option_type": "PUT",
+        "entry_credit": 9.46,
+        "current_value": 1.30
+      }
     }
   ]
 }

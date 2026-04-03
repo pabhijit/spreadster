@@ -1,51 +1,39 @@
 # spreadster
 
-Unified options decision engine with:
-- **daily mode** for strategy selection and candidate generation
-- **live mode** for intraday condor/credit-spread management
-- shared configuration, AI, Telegram, and webhook integrations
+A unified options decision engine with two modes:
 
-## Modes
+- **daily mode** for pre-market / near-open strategy selection
+- **live mode** for intraday condor and credit-spread management
 
-### Daily mode
-Use this before or near the open to decide whether conditions favor:
-- cash-secured puts
-- put credit spreads
-- call credit spreads
-- iron condors
+This repository preserves the original modular `spreadster` daily package layout and adds a
+parallel `live/` package plus shared config, OpenAI, Telegram, and TradingView/Option Omega helpers.
 
-Daily mode combines:
-- market regime classification
-- gap-to-expected-move logic
-- strategy routing
-- Thinkorswim order string generation
-- optional OpenAI summary
-
-### Live mode
-Use this during the session to manage open positions:
-- classify regime
-- identify tested vs untested side
-- detect safe-side profit capture
-- detect tested-side stop conditions
-- generate Thinkorswim close codes
-- optionally send Telegram alerts
-
-## High-level architecture
+## Package layout
 
 ```text
-spreadster/
-├── config.py                  # central Config class
-├── cli.py                     # unified entrypoint
-├── core/                      # shared models, regime, formatting
-├── daily/                     # daily decision pipeline
-├── live/                      # live monitoring + management
-├── integrations/
-│   ├── ai/                    # OpenAI support
-│   ├── alerts/                # Telegram
-│   ├── inputs/                # TradingView / Option Omega / sample loaders
-│   └── providers/             # future market data providers
-├── scripts/                   # helpers like merge_snapshots and webhook receiver
-└── examples/                  # sample payloads
+src/spreadster/
+├── alerts/
+├── ai/
+├── config.py
+├── formatting/
+├── live/
+│   ├── ai_alerts.py
+│   ├── main.py
+│   ├── models.py
+│   ├── position_manager.py
+│   ├── regime_engine.py
+│   ├── state_collector.py
+│   └── utils.py
+├── pipelines/
+├── providers/
+├── regime/
+├── selector/
+├── signals/
+├── strategies/
+├── utils/
+├── cli.py
+├── main.py
+└── models.py
 ```
 
 ## Quick start
@@ -57,50 +45,63 @@ python3 -m pip install --upgrade pip setuptools wheel
 python3 -m pip install -r requirements.txt
 ```
 
-## Run daily mode (sample)
+Run daily sample:
 
 ```bash
 PYTHONPATH=src python3 -m spreadster.cli daily --sample
 ```
 
-## Run live mode (sample)
+Run live sample:
 
 ```bash
 PYTHONPATH=src python3 -m spreadster.cli live --sample
 ```
 
-## OpenAI / Telegram
+Print config:
 
-Configure `.env` from `.env.example`, then:
+```bash
+PYTHONPATH=src python3 -m spreadster.cli config --print
+```
+
+## OpenAI and Telegram
+
+Copy `.env.example` to `.env` and fill in your secrets:
+
+```bash
+cp .env.example .env
+```
+
+Then you can use:
 
 ```bash
 PYTHONPATH=src python3 -m spreadster.cli live --sample --with-openai --with-telegram
 ```
 
-## TradingView webhook flow
+If OpenAI quota is unavailable, live mode falls back to the human summary.
+
+## TradingView + Option Omega flow
 
 1. Run the webhook receiver:
 ```bash
 PYTHONPATH=src python3 scripts/webhook_receiver.py
 ```
 
-2. Send TradingView alerts to your public tunnel URL:
-```text
-https://your-public-url/tradingview
-```
+2. Send TradingView alerts to your public webhook URL ending in `/tradingview`
 
-3. Merge TradingView + Option Omega snapshots:
+3. Update the Option Omega positions snapshot
+
+4. Merge snapshots:
 ```bash
 PYTHONPATH=src python3 scripts/merge_snapshots.py
 ```
 
-4. Run live mode on the merged file:
+5. Run live mode:
 ```bash
 PYTHONPATH=src python3 -m spreadster.cli live --input examples/merged_live_state.json --with-telegram
 ```
 
 ## Notes
 
-- `.env` is intentionally excluded from version control.
-- This repo is for **decision support**, not autonomous execution.
+- `.env` and local snapshots are ignored by `.gitignore`.
+- This project is for decision support, not autonomous execution.
 - Thinkorswim remains the execution platform; `spreadster` generates TOS order strings and alerts.

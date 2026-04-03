@@ -1,0 +1,8 @@
+SPX:
+  product_type: index
+  tos_weeklys: true
+  default_wing_width: 50
+SPY:
+  product_type: etf
+  tos_weeklys: true
+  default_wing_width: 5

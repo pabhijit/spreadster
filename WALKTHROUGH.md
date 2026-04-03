@@ -16,6 +16,7 @@ PYTHONPATH=src python3 -m spreadster.cli daily --sample
 ```
 
 Optional:
+
 ```bash
 PYTHONPATH=src python3 -m spreadster.cli daily --sample --with-openai --with-telegram
 ```
@@ -27,6 +28,7 @@ PYTHONPATH=src python3 -m spreadster.cli live --sample
 ```
 
 Optional:
+
 ```bash
 PYTHONPATH=src python3 -m spreadster.cli live --sample --with-openai --with-telegram
 ```
@@ -38,16 +40,14 @@ PYTHONPATH=src python3 -m spreadster.cli live --sample --with-openai --with-tele
 PYTHONPATH=src python3 scripts/webhook_receiver.py
 ```
 
-2. Send TradingView payloads to `/tradingview`
+2. Update the Option Omega positions file
 
-3. Update Option Omega positions file
-
-4. Merge:
+3. Merge snapshots:
 ```bash
 PYTHONPATH=src python3 scripts/merge_snapshots.py
 ```
 
-5. Run live mode:
+4. Run live mode:
 ```bash
 PYTHONPATH=src python3 -m spreadster.cli live --input examples/merged_live_state.json --with-telegram
 ```

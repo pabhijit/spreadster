@@ -1,0 +1,13 @@
+gap_down_near_lower_em:
+  preferred_strategy: put_credit_spread
+gap_up_near_upper_em:
+  preferred_strategy: call_credit_spread
+range:
+  preferred_strategy: iron_condor
+bull_trend:
+  preferred_strategy: put_credit_spread
+  secondary_strategy: cash_secured_put
+bear_trend:
+  preferred_strategy: call_credit_spread
+mixed:
+  preferred_strategy: no_trade
