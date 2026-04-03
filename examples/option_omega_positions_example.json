@@ -1,0 +1,25 @@
+{
+  "positions": [
+    {
+      "id": "IC_0950",
+      "symbol": "SPX",
+      "expiration": "2026-04-02",
+      "quantity": 1,
+      "entry_time_et": "09:50 ET",
+      "call_side": {
+        "short_strike": 6530,
+        "long_strike": 6580,
+        "option_type": "CALL",
+        "entry_credit": 8.79,
+        "current_value": 15.20
+      },
+      "put_side": {
+        "short_strike": 6450,
+        "long_strike": 6400,
+        "option_type": "PUT",
+        "entry_credit": 8.95,
+        "current_value": 1.10
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "timestamp_et": "2026-04-02 11:18 ET",
+  "symbol": "SPX",
+  "spot": 6578.4,
+  "vwap": 6558.2,
+  "open_price": 6494.1,
+  "previous_close": 6518.7,
+  "expected_move": 78.0,
+  "initial_balance": {
+    "high": 6521.3,
+    "low": 6488.4
+  },
+  "vwap_flips": 0,
+  "positions": [
+    {
+      "id": "IC_0950",
+      "symbol": "SPX",
+      "expiration": "2026-04-02",
+      "quantity": 1,
+      "entry_time_et": "09:50 ET",
+      "call_side": {
+        "short_strike": 6530,
+        "long_strike": 6580,
+        "option_type": "CALL",
+        "entry_credit": 8.79,
+        "current_value": 15.20
+      },
+      "put_side": {
+        "short_strike": 6450,
+        "long_strike": 6400,
+        "option_type": "PUT",
+        "entry_credit": 8.95,
+        "current_value": 1.10
+      }
+    }
+  ]
+}

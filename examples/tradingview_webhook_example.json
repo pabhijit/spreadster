@@ -1,0 +1,12 @@
+{
+  "symbol": "SPX",
+  "spot": 6578.4,
+  "vwap": 6558.2,
+  "open_price": 6494.1,
+  "previous_close": 6518.7,
+  "expected_move": 78.0,
+  "ib_high": 6521.3,
+  "ib_low": 6488.4,
+  "vwap_flips": 0,
+  "timestamp_et": "2026-04-02 11:18 ET"
+}

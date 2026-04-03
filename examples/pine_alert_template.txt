@@ -1,0 +1,12 @@
+{
+  "symbol": "{{ticker}}",
+  "spot": {{close}},
+  "vwap": {{plot_0}},
+  "open_price": {{open}},
+  "previous_close": {{close}},
+  "expected_move": 0,
+  "ib_high": 0,
+  "ib_low": 0,
+  "vwap_flips": 0,
+  "timestamp_et": "{{time}}"
+}
